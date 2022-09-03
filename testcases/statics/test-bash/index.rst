@@ -1,6 +1,14 @@
 hi, bash test
 =============
 
+.. code-block::
+
+    export
+
 .. bash::
 
-    pip3 -h
+    ls -al
+
+.. bash::
+
+    python3 -m rich
