@@ -9,22 +9,24 @@ from colorama import Style
 from colorama import Fore
 from pexpect import spawn
 from pexpect import ExceptionPexpect
-from pexpect import TIMEOUT
 from pexpect import EOF
 from bs4 import BeautifulSoup
-from css_inline import inline
+from css_inline import inline # pylint: disable = no-name-in-module
 
 def execute(command: str, timeout=30, interactions=None) -> str:
-    interactions = interactions or [(EOF, '')]
+    """
+    this function is used to execute the command and get its output.
+    """
+    interactions = interactions or []
     try:
-        process = spawn(command, timeout=timeout, encoding='utf8') #.read().decode('utf8').strip()
+        process = spawn(command, timeout=timeout, encoding='utf8')
     except ExceptionPexpect as exception:
         return exception.value
 
     output = ''
     try:
-        for expect, action in interactions:
-            process.expect(expect)
+        for pattern, action in interactions:
+            process.expect(pattern)
             process.sendline(action)
             output += process.before + process.after
         output += process.read()
@@ -61,6 +63,9 @@ class Bash(Raw):
         return super().run()
 
 def setup(app):
+    """
+    this is the setup function for this directive.
+    """
     app.add_directive('bash', Bash)
     return {
         'version': '0.1',
