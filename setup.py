@@ -12,7 +12,7 @@ with open('sphinx_console/requirements.txt', 'r', encoding='utf8') as file:
 
 setup(
     name='sphinx_console',
-    version=VERSION,
+    version='.'.join(map(str, VERSION)),
     author='kinopico',
     author_email='zqmillet@qq.com',
     url='https://github.com/zqmillet/sphinx-console',
