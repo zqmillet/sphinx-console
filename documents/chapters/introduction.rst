@@ -5,6 +5,12 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
 
 比如:
 
+- 显示系统版本.
+
+  .. bash::
+
+      python3 -c "from platform import platform; print(platform())"
+
 - 执行 :sh:`ls -al` 命令.
 
   .. bash::
