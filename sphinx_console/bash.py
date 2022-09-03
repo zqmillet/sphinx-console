@@ -70,7 +70,8 @@ class Bash(Raw):
         soup = BeautifulSoup(inline(html), features="html.parser")
         soup.pre.attrs.update(soup.body.attrs)
         soup.pre['style'] += ';padding: 10px'
-        self.content[0] = str(soup.pre)
+        # self.content[0] = str(soup.pre)
+        self.content[0] = str(header + output)
 
         return super().run()
 
