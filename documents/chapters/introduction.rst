@@ -5,6 +5,16 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
 
 比如:
 
+- 显示环境变量.
+
+  .. bash::
+
+      python3 -c "from os import environ; print(environ['TERM'])"
+
+  .. bash::
+
+      echo $TERM
+
 - 显示系统版本.
 
   .. bash::
