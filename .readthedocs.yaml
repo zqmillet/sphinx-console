@@ -8,6 +8,7 @@ build:
     - zsh
     - tmux
     - gettext
+    - colortest
 
 # Build from the docs/ directory with Sphinx
 sphinx:
