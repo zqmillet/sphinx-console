@@ -21,7 +21,7 @@ def execute(command: str, timeout=30, interactions=None) -> str:
     """
     interactions = interactions or []
     try:
-        process = spawn(command, timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'vt100'})
+        process = spawn('/bin/bash', ['-c', command], timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'vt100'})
     except ExceptionPexpect as exception:
         return exception.value
 
