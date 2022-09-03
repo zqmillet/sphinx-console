@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
-# coding: utf-8
+"""
+this is the setup of this package.
+"""
 
 from setuptools import setup
 from setuptools import find_packages
