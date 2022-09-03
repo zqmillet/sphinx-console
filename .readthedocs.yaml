@@ -5,8 +5,8 @@ build:
   tools:
     python: "3.9"
   apt_packages:
-    zsh
-    tmux
+    - zsh
+    - tmux
 
 # Build from the docs/ directory with Sphinx
 sphinx:
