@@ -1,6 +1,6 @@
-ansi2html
-beautifulsoup4
-colorama
-css_inline
-docutils
-pexpect
+ansi2html==1.7.0
+beautifulsoup4==4.11.1
+colorama==0.4.4
+css_inline==0.8.3
+docutils==0.17.1
+pexpect==4.8.0
