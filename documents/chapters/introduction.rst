@@ -30,3 +30,13 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
       :do_not_run:
 
       ping localhost -c 4
+
+- 当然, 也可以支持颜色显示.
+
+  .. bash::
+
+      pip3 install rich
+
+  .. bash::
+
+      python3 -m rich
