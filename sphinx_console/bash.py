@@ -13,6 +13,7 @@ from pexpect import EOF
 from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
 from json import loads
+from os import environ
 
 def execute(command: str, timeout=30, interactions=None) -> str:
     """
@@ -20,7 +21,7 @@ def execute(command: str, timeout=30, interactions=None) -> str:
     """
     interactions = interactions or []
     try:
-        process = spawn(command, timeout=timeout, encoding='utf8')
+        process = spawn(command, timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
     except ExceptionPexpect as exception:
         return exception.value
 
