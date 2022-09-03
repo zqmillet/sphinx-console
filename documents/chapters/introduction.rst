@@ -13,11 +13,7 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
 
   .. bash::
 
-      find / -name lolcat
-
-  .. bash::
-
-      ls -l | lolcat
+      msgcat --color=test
 
 - 显示系统版本.
 
