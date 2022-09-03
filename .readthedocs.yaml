@@ -7,7 +7,7 @@ build:
   apt_packages:
     - zsh
     - tmux
-    - lolcat
+    - gettext
 
 # Build from the docs/ directory with Sphinx
 sphinx:
