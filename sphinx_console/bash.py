@@ -21,7 +21,7 @@ def execute(command: str, timeout=30, interactions=None) -> str:
     """
     interactions = interactions or []
     try:
-        process = spawn('/bin/zsh', ['-c', command], timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'screen'})
+        process = spawn('/bin/zsh', ['-c', command], timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
     except ExceptionPexpect as exception:
         return exception.value
 
