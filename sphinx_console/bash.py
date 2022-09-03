@@ -12,6 +12,7 @@ from pexpect import ExceptionPexpect
 from pexpect import EOF
 from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
+from json import loads
 
 def execute(command: str, timeout=30, interactions=None) -> str:
     """
@@ -35,6 +36,9 @@ def execute(command: str, timeout=30, interactions=None) -> str:
 
     return output.strip()
 
+def parse_interactions(argument):
+    return loads(argument)
+
 class Bash(Raw):
     """
     this directive is used to display bash and its output.
@@ -43,21 +47,28 @@ class Bash(Raw):
     required_arguments = 0
 
     option_spec = {
-        'norun': directives.flag,
-        'real_cmd': directives.unchanged,
+        'do_not_run': directives.flag,
+        'display_command': directives.unchanged,
+        'timeout': directives.nonnegative_int,
+        'interactions': parse_interactions,
     }
 
     def run(self):
+        command = '\n'.join(self.content)
+
+        do_not_run = 'do_not_run' in self.options
+        display_command = self.options.get('display_command', command)
+        timeout = self.options.get('timeout', 30)
+        interactions = self.options.get('interactions', None)
+
         self.arguments[:] = ['html']
         convertor = Ansi2HTMLConverter(dark_bg=True, line_wrap=False, inline=True, font_size='10pt')
-        command = '\n'.join(self.content)
-        output = execute(command)
-        header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {command}{Fore.RESET}{Style.RESET_ALL}'
-        html = convertor.convert(header + '\n' + output)
+        output = ('\n' + execute(command, timeout=timeout, interactions=interactions)) if not do_not_run else ''
+        header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
+        html = convertor.convert(header + output)
         soup = BeautifulSoup(inline(html), features="html.parser")
         soup.pre.attrs.update(soup.body.attrs)
         soup.pre['style'] += ';padding: 10px'
-
         self.content[0] = str(soup.pre)
 
         return super().run()
