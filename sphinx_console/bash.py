@@ -55,7 +55,7 @@ class Bash(Raw):
     }
 
     def run(self):
-        command = '\n'.join(self.content)
+        command = str(self.content[0])
 
         do_not_run = 'do_not_run' in self.options
         display_command = self.options.get('display_command', command)

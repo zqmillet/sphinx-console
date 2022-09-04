@@ -5,54 +5,31 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
 
 比如:
 
-- 显示环境变量.
-
-  .. bash::
-
-      python3 -c "from os import environ; print(environ['TERM'])"
-
-  .. bash::
-
-      curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/e50a28ec54188d2413518788de6c6367ffcea4f7/print256colours.sh | bash
-
 - 显示系统版本.
 
-  .. bash::
-
-      python3 -c "from platform import platform; print(platform())"
+  .. bash:: python3 -c "from platform import platform; print(platform())"
 
 - 执行 :sh:`ls -al` 命令.
 
-  .. bash::
-
-      ls -al
+  .. bash:: ls -al
 
 - 启动 Python, 并执行 :py:`import this` 命令, 然后执行 :py:`exit()` 退出 Python.
 
-  .. bash::
+  .. bash:: python3
       :interactions: [[">>>", "import this"], [">>>", "exit()"]]
-
-      python3
 
 - 执行 :sh:`ping` 命令.
 
-  .. bash::
-
-      ping localhost -c 4
+  .. bash:: ping localhost -c 4
 
 - 当然, 你可以只显示命令本身.
 
-  .. bash::
+  .. bash:: ping localhost -c 4
       :do_not_run:
 
-      ping localhost -c 4
+- 值得注意的是, sphinx-console 也支持持颜色显示.
 
-- 当然, 也可以支持颜色显示.
+  .. literalinclude:: ./scripts/color_test.sh
+      :language: bash
 
-  .. bash::
-
-      pip3 install rich
-
-  .. bash::
-
-      python3 -m rich
+  .. bash:: bash documents/chapters/scripts/color_test.sh

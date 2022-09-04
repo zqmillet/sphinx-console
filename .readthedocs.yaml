@@ -7,8 +7,6 @@ build:
   apt_packages:
     - zsh
     - tmux
-    - gettext
-    - colortest
 
 # Build from the docs/ directory with Sphinx
 sphinx:

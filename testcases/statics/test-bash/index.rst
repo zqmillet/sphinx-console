@@ -1,22 +1,14 @@
 hi, bash test
 =============
 
-.. bash::
+.. bash:: ls -al
     :do_not_run:
 
-    ls -al
+.. bash:: ls -al
 
-.. bash::
-
-    ls -al
-
-.. bash::
+.. bash:: python3
     :timeout: 1
     :interactions: [[">>>", "1 + 2"], [">>>", "exit()"]]
 
-    python3
-
-.. bash::
+.. bash:: python3 -m rich
     :display_command: rich
-
-    python3 -m rich
