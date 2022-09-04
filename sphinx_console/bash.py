@@ -22,7 +22,7 @@ def execute(command: str, timeout=30, interactions=None, window_columns=80) -> s
     """
     interactions = interactions or []
     try:
-        process = spawn('/bin/zsh', ['-c', command], timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
+        process = spawn(command, timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
         process.setwinsize(1000, window_columns)
     except ExceptionPexpect as exception:
         return exception.value
