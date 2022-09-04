@@ -9,7 +9,7 @@ html_favicon = './statics/logo.png'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_console.bash',
+    'sphinx_console',
 ]
 
 rst_prolog = '''

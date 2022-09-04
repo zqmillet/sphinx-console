@@ -15,3 +15,4 @@ sphinx-console
    :numbered:
 
    chapters/bash_manual.rst
+   chapters/python_manual.rst
