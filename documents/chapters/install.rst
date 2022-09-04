@@ -8,5 +8,3 @@
 然后执行 :sh:`python3 -m sphinx_console`, 如果可以成功显示版本号, 则表示安装成功.
 
 .. bash:: python3 -m sphinx_console
-
-然后执行 :sh:`python3 -m sphinx_console`, 如果可以成功显示版本号, 则表示安装成功.
