@@ -76,7 +76,7 @@ class Bash(Raw):
         html = convertor.convert(header + output)
         soup = BeautifulSoup(inline(html), features="html.parser")
         soup.pre.attrs.update(soup.body.attrs)
-        soup.pre['style'] += ';padding: 10px;' + overflow_style
+        soup.pre['style'] += ';padding: 10px; margin-bottom: 24px;' + overflow_style
         self.content[0] = str(soup.pre)
 
         return super().run()
