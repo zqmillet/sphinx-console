@@ -67,9 +67,9 @@
 
   .. code-block:: rst
 
-      .. bash:: pip3 install tqdm
+      .. bash:: pip3 install requests
 
-  .. bash:: pip3 install tqdm
+  .. bash:: pip3 install requests
 
   如果你不喜欢滚动条, 可以通过修改 ``:overflow:`` 参数的值来让 ``bash`` 自动换行.
 
