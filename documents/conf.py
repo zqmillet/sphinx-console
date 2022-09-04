@@ -1,6 +1,12 @@
+from os.path import dirname
+from sys import path
+
+path.append(dirname(dirname(__file__)))
+
 author = 'kinopico'
 project = 'the manual of sphinx-console'
 html_favicon = './statics/logo.png'
+
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx_console.bash',

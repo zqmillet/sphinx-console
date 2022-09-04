@@ -14,5 +14,4 @@ sphinx-console
    :caption: 使用手册
    :numbered:
 
-   chapters/manual/bash.rst
-
+   chapters/bash_manual.rst
