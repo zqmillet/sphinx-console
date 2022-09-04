@@ -1,9 +1,12 @@
+"""
+this module provides the function execute and contextmanager setup_and_teardown.
+"""
+
 from os import environ
 from contextlib import contextmanager
 
 from pexpect import spawn
 from pexpect import ExceptionPexpect
-from pexpect import EOF
 
 def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120) -> str:
     """
@@ -33,6 +36,9 @@ def execute(command: str, timeout=30, interactions=None, window_width=80, window
 
 @contextmanager
 def setup_and_teardown(setup, teardown):
+    """
+    this is a contextmanager that can execute setup and teardown.
+    """
     if setup:
         print('executing setup', setup)
         print(execute(setup))

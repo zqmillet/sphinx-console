@@ -2,7 +2,6 @@
 this module provides the Bash directive.
 """
 
-from textwrap import wrap
 from json import loads
 
 from docutils.parsers.rst.directives.misc import Raw
@@ -62,7 +61,15 @@ class Bash(Raw):
         convertor = Ansi2HTMLConverter(dark_bg=True, line_wrap=False, inline=True, font_size='10pt')
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
-            output = ('\n' + execute(command, timeout=timeout, interactions=interactions, window_width=window_width, window_height=window_height)) if not do_not_run else ''
+            output = (
+                '\n' + execute(
+                    command=command,
+                    timeout=timeout,
+                    interactions=interactions,
+                    window_width=window_width,
+                    window_height=window_height
+                )
+            ) if not do_not_run else ''
 
         header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
         html = convertor.convert(header + output)
@@ -72,14 +79,3 @@ class Bash(Raw):
         self.content[0] = str(soup.pre)
 
         return super().run()
-
-def setup(app):
-    """
-    this is the setup function for this directive.
-    """
-    app.add_directive('bash', Bash)
-    return {
-        'version': '0.1',
-        'parallel_read_safe': True,
-        'parallel_write_safe': True
-    }
