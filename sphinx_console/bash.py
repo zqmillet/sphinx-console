@@ -47,7 +47,9 @@ class Bash(Raw):
     }
 
     def run(self):
-        command = str(self.content[0])
+        command, *custom_output = self.content
+        custom_output = '\n'.join(custom_output)
+
         overflow_style = 'overflow-x:scroll;' if self.options.get('overflow', 'scroll') == 'scroll' else 'white-space:pre-wrap;'
 
         do_not_run = 'do_not_run' in self.options
@@ -61,7 +63,7 @@ class Bash(Raw):
         convertor = Ansi2HTMLConverter(dark_bg=True, line_wrap=False, inline=True, font_size='10pt')
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
-            output = (
+            output = custom_output or (
                 '\n' + execute(
                     command=command,
                     timeout=timeout,
@@ -77,5 +79,6 @@ class Bash(Raw):
         soup.pre.attrs.update(soup.body.attrs)
         soup.pre['style'] += ';padding: 10px; margin-bottom: 24px;' + overflow_style
         self.content[0] = str(soup.pre)
+        self.content[:] = self.content[:1]
 
         return super().run()

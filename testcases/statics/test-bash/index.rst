@@ -12,3 +12,7 @@ hi, bash test
 
 .. bash:: python3 -m rich
     :display_command: rich
+
+.. bash:: ls -al
+
+    苟利国家生死以, 岂因祸福避趋之

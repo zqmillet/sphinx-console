@@ -15,7 +15,7 @@ def test_bash(index):
     soup = BeautifulSoup(index, 'html.parser')
 
     pre_blocks = soup.find_all('pre')
-    assert len(pre_blocks) == 4
+    assert len(pre_blocks) == 5
 
     assert pre_blocks[0].text.strip() == '$ ls -al'
 
@@ -26,3 +26,5 @@ def test_bash(index):
     assert '>>> exit()' in pre_blocks[2].text
 
     assert pre_blocks[3].text.strip().startswith('$ rich')
+
+    assert str(soup).count('苟利国家') == 1
