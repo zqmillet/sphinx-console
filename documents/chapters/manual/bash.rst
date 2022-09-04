@@ -23,7 +23,7 @@
   .. bash:: ping www.baidu.com -c 4
       :do_not_run:
 
-- 某些命令会无限循环, 比如 :sh:`ping www.baidu.com`, 这条命令会一直执行下去, 直到用户使用 :guilabel:`Ctrl + C` 组合键将其中断. ``bash`` 遇到这种命令会有超时机制, 默认是 30 秒, 也就是一条指令最多运行 30 秒, 30 秒后 ``Bash`` 命令会终止该进程并输出其渲染结果.
+- 某些命令会无限循环, 比如 :sh:`ping www.baidu.com`, 这条命令会一直执行下去, 直到用户使用 :guilabel:`Ctrl + C` 组合键将其中断. ``bash`` 遇到这种命令会有超时机制, 默认是 30 秒, 也就是一条指令最多运行 30 秒, 30 秒后 ``bash`` 命令会终止该进程并输出其渲染结果.
 
   如果你想修改超时时间, 可以使用 ``:timeout:`` 参数来修改超时时间, 如下 reST 代码.
 
@@ -80,6 +80,58 @@
 
   .. bash:: pip3 install requests
       :overflow: wrap
+
+- 如果你想在运行某个命令前执行某个命令, 运行之后再执行另一个命令, 你可以使用 ``:setup:`` 和 ``:teardown:`` 参数.
+
+  比如, 运行某个命令需要提前安装依赖, 如果没有安装就会报错.
+
+  .. code-block:: rst
+
+      .. bash:: python3 -m rich.panel
+
+  直接运行会报错, 如下所示.
+
+  .. bash:: python3 -m rich.panel
+
+  你可以用 ``:setup:`` 参数提前安装 ``rich`` 库, 然后再安装. 安装完成后, 使用 ``:teardown:`` 参数卸载.
+
+  .. code-block:: rst
+
+      .. bash:: python3 -m rich.panel
+          :setup: python3 -m pip install rich
+          :teardown: python3 -m pip uninstall rich -y
+
+  .. bash:: python3 -m rich.panel
+      :setup: python3 -m pip install rich
+      :teardown: python3 -m pip uninstall rich -y
+
+- 如果你对 ``rich.panel`` 命令了解的话, 你应该知道 ``rich.panel`` 命令会填充整个控制台, 那么, 如何控制台的大小可以控制吗? 答案是可以的, ``bash`` 命令提供 ``:window_height:`` 和 ``:window_width:`` 两个参数来设置控制台的大小.
+
+  你可以用如下代码将控制台的宽度缩小至 40 字符.
+
+  .. code-block:: rst
+
+      .. bash:: python3 -m rich.panel
+          :setup: python3 -m pip install rich
+          :teardown: python3 -m pip uninstall rich -y
+          :window_width: 40
+
+  .. bash:: python3 -m rich.panel
+      :setup: python3 -m pip install rich
+      :teardown: python3 -m pip uninstall rich -y
+      :window_width: 40
+
+  你可以用 ``tput`` 命令来查看当前窗口的大小.
+
+  .. code-block:: rst
+
+      .. bash:: python3 -c "import os; print(os.popen('stty size', 'r').read().strip())"
+          :window_width: 40
+          :window_height: 10
+
+  .. bash:: python3 -c "import os; print(os.popen('stty size', 'r').read().strip())"
+      :window_width: 40
+      :window_height: 10
 
 .. rubric::
 

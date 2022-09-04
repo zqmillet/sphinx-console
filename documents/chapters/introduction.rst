@@ -29,7 +29,7 @@ sphinx-console 是一个可以自动渲染终端的 sphinx 扩展, 你可以非�
 
 - 值得注意的是, sphinx-console 也支持持颜色显示\ [#f1]_.
 
-  .. bash:: bash documents/chapters/scripts/color_test.sh
+  .. bash:: bash chapters/scripts/color_test.sh
       :display_command: bash color_test.sh
 
 .. rubric:: footnotes
