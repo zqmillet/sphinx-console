@@ -14,14 +14,16 @@ from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
 from json import loads
 from os import environ
+from textwrap import wrap
 
-def execute(command: str, timeout=30, interactions=None) -> str:
+def execute(command: str, timeout=30, interactions=None, window_columns=80) -> str:
     """
     this function is used to execute the command and get its output.
     """
     interactions = interactions or []
     try:
         process = spawn('/bin/zsh', ['-c', command], timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
+        process.setwinsize(1000, window_columns)
     except ExceptionPexpect as exception:
         return exception.value
 
@@ -40,6 +42,9 @@ def execute(command: str, timeout=30, interactions=None) -> str:
 def parse_interactions(argument):
     return loads(argument)
 
+def parse_overflow(argument):
+    return directives.choice(argument, ('wrap', 'scroll'))
+
 class Bash(Raw):
     """
     this directive is used to display bash and its output.
@@ -52,10 +57,12 @@ class Bash(Raw):
         'display_command': directives.unchanged,
         'timeout': directives.nonnegative_int,
         'interactions': parse_interactions,
+        'overflow': parse_overflow
     }
 
     def run(self):
         command = str(self.content[0])
+        overflow_style = 'overflow-x:scroll;' if self.options.get('overflow', 'scroll') == 'scroll' else 'white-space:pre-wrap;'
 
         do_not_run = 'do_not_run' in self.options
         display_command = self.options.get('display_command', command)
@@ -69,7 +76,7 @@ class Bash(Raw):
         html = convertor.convert(header + output)
         soup = BeautifulSoup(inline(html), features="html.parser")
         soup.pre.attrs.update(soup.body.attrs)
-        soup.pre['style'] += ';padding: 10px'
+        soup.pre['style'] += ';padding: 10px;' + overflow_style
         self.content[0] = str(soup.pre)
 
         return super().run()
