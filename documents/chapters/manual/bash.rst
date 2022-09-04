@@ -121,7 +121,7 @@
       :teardown: python3 -m pip uninstall rich -y
       :window_width: 40
 
-  你可以用 ``tput`` 命令来查看当前窗口的大小.
+  你可以用如下命令来查看当前窗口的大小.
 
   .. code-block:: rst
 
