@@ -1,14 +1,14 @@
 hi, python test
 ===============
 
-.. .. python::
+.. python::
 
-..     1 + 1
+    1 + 1
 
-.. .. python::
+.. python::
 
-..     exit()
-..     1 + 1
+    exit()
+    1 + 1
 
 .. python::
 
