@@ -5,6 +5,7 @@ this module provides the function execute and contextmanager setup_and_teardown.
 from os import environ
 from sys import executable
 from contextlib import contextmanager
+from time import sleep
 
 from pexpect import spawn
 from pexpect import ExceptionPexpect
@@ -35,7 +36,7 @@ def execute(command: str, timeout=30, interactions=None, window_width=80, window
 
     return output.strip()
 
-def interpret_python(lines, timeout=30, window_width=80, window_height=120):
+def interpret_python(lines, timeout=30, window_width=80, window_height=120, interval=0.1):
     """
     this function is used to get output of python interpreter.
     """
@@ -48,6 +49,7 @@ def interpret_python(lines, timeout=30, window_width=80, window_height=120):
     output = ''
     try:
         for line in lines + auto_exit_expressions:
+            sleep(interval)
             if not process.isalive():
                 break
             process.sendline(line)
