@@ -48,6 +48,8 @@ def interpret_python(lines, timeout=30, window_width=80, window_height=120):
     output = ''
     try:
         for line in lines + auto_exit_expressions:
+            if not process.isalive():
+                break
             process.sendline(line)
 
         output = '>>>' + process.read().rstrip()
