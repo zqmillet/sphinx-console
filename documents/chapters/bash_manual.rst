@@ -157,6 +157,6 @@
 
       如果自定义了命令的输出, 则命令不会被执行.
 
-.. rubric::
+.. rubric:: footnotes
 
 .. [#f1] 不需要手动添加 ``\n``, ``bash`` 的 ``:interactions:`` 参数会自动帮你添加 ``\n``.

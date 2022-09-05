@@ -1,5 +1,5 @@
 """
-this module provides the Bash directive.
+this module provides the Python directive.
 """
 
 from docutils.parsers.rst.directives.misc import Raw
@@ -10,12 +10,11 @@ from colorama import Fore
 from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
 
-from .execute import execute
 from .execute import setup_and_teardown
-from .validators import parse_interactions
 from .validators import parse_overflow
+from .execute import interpret_python
 
-class Bash(Raw):
+class Python(Raw):
     """
     this directive is used to display bash and its output.
     """
@@ -23,27 +22,19 @@ class Bash(Raw):
     required_arguments = 0
 
     option_spec = {
-        'do_not_run': directives.flag,
-        'display_command': directives.unchanged,
         'timeout': directives.nonnegative_int,
-        'interactions': parse_interactions,
         'overflow': parse_overflow,
         'setup': directives.unchanged,
         'teardown': directives.unchanged,
         'window_width': directives.positive_int,
         'window_height': directives.positive_int,
+        'hide_header': directives.flag,
     }
 
     def run(self):
-        command, *custom_output = self.content
-        custom_output = '\n'.join(custom_output)
-
         overflow_style = 'overflow-x:scroll;' if self.options.get('overflow', 'scroll') == 'scroll' else 'white-space:pre-wrap;'
-
-        do_not_run = 'do_not_run' in self.options
-        display_command = self.options.get('display_command', command)
+        display_command = 'python\n'
         timeout = self.options.get('timeout', 30)
-        interactions = self.options.get('interactions', None)
         window_width = self.options.get('window_width', 80)
         window_height = self.options.get('window_height', 120)
 
@@ -51,17 +42,18 @@ class Bash(Raw):
         convertor = Ansi2HTMLConverter(dark_bg=True, line_wrap=False, inline=True, font_size='10pt')
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
-            output = custom_output or (
-                '\n' + execute(
-                    command=command,
-                    timeout=timeout,
-                    interactions=interactions,
-                    window_width=window_width,
-                    window_height=window_height
-                )
-            ) if not do_not_run else ''
+            header, output = interpret_python(
+                lines=self.content,
+                timeout=timeout,
+                window_height=window_height,
+                window_width=window_width,
+            )
 
-        header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
+        if 'hide_header' not in self.options:
+            header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}{header}'
+        else:
+            header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
+
         html = convertor.convert(header + output)
         soup = BeautifulSoup(inline(html), features="html.parser")
         soup.pre.attrs.update(soup.body.attrs)
