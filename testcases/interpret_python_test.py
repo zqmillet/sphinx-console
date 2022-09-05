@@ -99,3 +99,26 @@ def test_sleep():
         ...
         '''
     ).strip()
+
+def test_timeout():
+    header, output = interpret_python(
+        lines=['from time import sleep', 'sleep(2)', 'print("hello, world")'],
+        timeout=1,
+    )
+    assert output == dedent(
+        '''
+        >>> from time import sleep
+        >>> sleep(2)
+        '''
+    ).strip()
+
+def test_windows_size():
+    header, output = interpret_python(lines=['from os import get_terminal_size', 'get_terminal_size()'], window_height=10, window_width=40)
+
+    assert output == dedent(
+        '''
+        >>> from os import get_terminal_size
+        >>> get_terminal_size()
+        os.terminal_size(columns=40, lines=10)
+        '''
+    ).strip()
