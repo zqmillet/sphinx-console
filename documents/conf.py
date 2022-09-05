@@ -1,7 +1,7 @@
 from os.path import dirname
 from sys import path
 
-path.append(dirname(dirname(__file__)))
+path.insert(0, dirname(dirname(__file__)))
 
 author = 'kinopico'
 project = 'the manual of sphinx-console'

@@ -43,7 +43,7 @@ class Python(Raw):
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
             header, output = interpret_python(
-                lines=self.content,
+                lines=self.content.data,
                 timeout=timeout,
                 window_height=window_height,
                 window_width=window_width,

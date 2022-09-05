@@ -5,7 +5,7 @@ this module provides the setup function.
 from .bash import Bash
 from .python import Python
 
-VERSION = (1, 0, 1)
+VERSION = (1, 0, 2)
 
 def setup(app):
     """

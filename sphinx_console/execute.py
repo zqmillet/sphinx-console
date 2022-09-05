@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from pexpect import spawn
 from pexpect import ExceptionPexpect
 
-def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120) -> str:
+def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120,) -> str:
     """
     this function is used to execute the command and get its output.
     """
