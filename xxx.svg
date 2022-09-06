@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="317.5mm" height="46.5667mm"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+<desc>Created by HiQPdf</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+>
+<path vector-effect="none" fill-rule="evenodd" d="M0,0 L1200,0 L1200,176 L0,176 L0,0"/>
+</g>
+
+<g fill="#aa0000" fill-opacity="1" stroke="#aa0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aa0000" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="20" font-family="Courier New" font-size="13" font-weight="700" font-style="normal" 
+ >$</text>
+</g>
+
+<g fill="#f5f1de" fill-opacity="1" stroke="#f5f1de" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#f5f1de" fill-opacity="1" stroke="none" xml:space="preserve" x="16" y="20" font-family="Courier New" font-size="13" font-weight="700" font-style="normal" 
+ > ping www.baidu.com -c 4</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="36" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >PING www.a.shifen.com (163.177.151.109): 56 data bytes</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="52" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >64 bytes from 163.177.151.109: icmp_seq=0 ttl=56 time=12.122 ms</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="68" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >64 bytes from 163.177.151.109: icmp_seq=1 ttl=56 time=13.815 ms</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="84" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >64 bytes from 163.177.151.109: icmp_seq=2 ttl=56 time=14.657 ms</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="100" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >64 bytes from 163.177.151.109: icmp_seq=3 ttl=56 time=13.706 ms</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="132" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >--- www.a.shifen.com ping statistics ---</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="148" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >4 packets transmitted, 4 packets received, 0.0% packet loss</text>
+</g>
+
+<g fill="#aaaaaa" fill-opacity="1" stroke="#aaaaaa" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+>
+<text fill="#aaaaaa" fill-opacity="1" stroke="none" xml:space="preserve" x="8" y="164" font-family="Courier New" font-size="13" font-weight="400" font-style="normal" 
+ >round-trip min/avg/max/stddev = 12.122/13.575/14.657/0.916 ms</text>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" transform="matrix(1,0,0,1,0,0)"
+>
+</g>
+</g>
+</svg>
