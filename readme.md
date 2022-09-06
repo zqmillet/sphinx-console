@@ -24,7 +24,7 @@ extentions = ['sphinx_console']
 
 # Usage
 
-![image](xxx.svg)
+![image](xxxx.svg)
 
 ```
 .. bash:: ping www.google.com -c 4
