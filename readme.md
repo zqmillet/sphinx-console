@@ -18,7 +18,7 @@ It's boring and stupid. So, I made it, an extention of Sphinx, which can render 
 
 Simply `pip install sphinx-console` and add the extention to your `conf.py`:
 
-```
+``` python
 extentions = ['sphinx_console']
 ```
 
