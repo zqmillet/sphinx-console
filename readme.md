@@ -22,11 +22,11 @@ Simply `pip install sphinx-console` and add the extention to your `conf.py`:
 extentions = ['sphinx_console']
 ```
 
-# Usage
+## Usage
 
 ![image](xxxx.svg)
 
-```
+``` rst
 .. bash:: ping www.google.com -c 4
 ```
 
