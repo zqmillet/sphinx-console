@@ -12,7 +12,7 @@ This repository contains:
 
 I'm writting a book about Python with the [Sphinx](https://www.sphinx-doc.org/en/master/). I have to copy the command and its output from terminal into my `rst` file, again and again.
 
-It's boring. so, I made it, an extention of Sphinx, which can render command and output in console style automatically.
+It's boring and stupid. So, I made it, an extention of Sphinx, which can render command and output in console style automatically.
 
 ## Install 
 
