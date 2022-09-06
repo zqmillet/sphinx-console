@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="317.5mm" height="46.5667mm"
+<svg width="158.75mm" height="46.5667mm"
  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
 <desc>Created by HiQPdf</desc>
 <defs>
@@ -20,7 +20,7 @@
 
 <g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
 >
-<path vector-effect="none" fill-rule="evenodd" d="M0,0 L1200,0 L1200,176 L0,176 L0,0"/>
+<path vector-effect="none" fill-rule="evenodd" d="M0,0 L600,0 L600,176 L0,176 L0,0"/>
 </g>
 
 <g fill="#aa0000" fill-opacity="1" stroke="#aa0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
