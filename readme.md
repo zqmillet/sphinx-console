@@ -1,6 +1,18 @@
 # sphinx-console
 
-A sphinx extention that can render command in console style.
+A Sphinx extention that can render command in console style.
+
+This repository contains:
+
+- The source code of sphinx-console extention.
+- The source code of sphinx-console document.
+- The test cases of sphinx-console extention.
+
+## Backgroud
+
+I'm writting a book about Python with the [Sphinx](https://www.sphinx-doc.org/en/master/). I have to copy the command and its output from terminal into my `rst` file, again and again.
+
+It's boring. so, I made it, an extention of Sphinx, which can render command and output in console style automatically.
 
 ## Install 
 
@@ -48,12 +60,4 @@ extentions = ['sphinx_console']
     print('wake up')
 ```
 
-``` bash
-PING www.wshifen.com (183.232.231.173) 56(84) bytes of data.
-64 bytes from 183.232.231.173 (183.232.231.173): icmp_seq=1 ttl=35 time=272 ms
-64 bytes from 183.232.231.173: icmp_seq=4 ttl=35 time=297 ms
-
---- www.wshifen.com ping statistics ---
-4 packets transmitted, 2 received, 50% packet loss, time 3032ms
-rtt min/avg/max/mdev = 271.577/284.227/296.877/12.650 ms
-```
+You can 
