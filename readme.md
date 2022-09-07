@@ -24,19 +24,29 @@ extentions = ['sphinx_console']
 
 ## Usage
 
+The sphinx-console extention provides `bash` directive.
+You can use the following reST code to execute the command `ping www.google.com -c 4`, and render it and its output in your document.
+
 ``` rst
 .. bash:: ping www.google.com -c 4
 ```
+
+If you want to terminate the command after 4 seconds, you can specify the `timeout` parameter.
 
 ```
 .. bash:: ping www.google.com
     :timeout: 4
 ```
 
+If you want do some interactions with the command, you can specify the `interactions` parameter.
+
 ```
 .. bash:: python3
     :interactions: [[">>>", "1 + 2"], [">>>", "exit()"]]
 ```
+
+The sphinx-console extention also provides `python` directive.
+You can can use it to execute Python expressions in the Python interpreter.
 
 ```
 .. python::
@@ -51,11 +61,4 @@ extentions = ['sphinx_console']
     fib(10)
 ```
 
-```
-.. python::
-    :timeout: 10
-
-    from time import sleep
-    sleep(233)
-    print('wake up')
-```
+You can read ![the manual of sphinx-console](https://sphinx-console.readthedocs.io/) for more detail.
