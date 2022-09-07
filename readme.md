@@ -24,8 +24,6 @@ extentions = ['sphinx_console']
 
 ## Usage
 
-![image](xxxx.svg)
-
 ``` rst
 .. bash:: ping www.google.com -c 4
 ```
@@ -61,5 +59,3 @@ extentions = ['sphinx_console']
     sleep(233)
     print('wake up')
 ```
-
-You can 
