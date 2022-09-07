@@ -1,5 +1,7 @@
 # sphinx-console
 
+[![sphinx-console](https://img.shields.io/badge/pypi-sphinx--console-brightgreen)](https://pypi.org/project/sphinx-console/)
+
 A Sphinx extention that can render command in console style.
 
 This repository contains:
