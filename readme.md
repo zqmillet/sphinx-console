@@ -33,14 +33,14 @@ You can use the following reST code to execute the command `ping www.google.com 
 
 If you want to terminate the command after 4 seconds, you can specify the `timeout` parameter.
 
-```
+``` rst
 .. bash:: ping www.google.com
     :timeout: 4
 ```
 
 If you want do some interactions with the command, you can specify the `interactions` parameter.
 
-```
+``` rst
 .. bash:: python3
     :interactions: [[">>>", "1 + 2"], [">>>", "exit()"]]
 ```
@@ -48,7 +48,7 @@ If you want do some interactions with the command, you can specify the `interact
 The sphinx-console extention also provides `python` directive.
 You can can use it to execute Python expressions in the Python interpreter.
 
-```
+``` rst
 .. python::
 
     def fib(n):
