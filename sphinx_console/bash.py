@@ -70,13 +70,7 @@ class Bash(Raw):
             ) if not do_not_run else ''
 
         header = wrap_header(display_command, '', False, theme)
-        # f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
         html = convertor.convert(header + output)
-
-        # soup = BeautifulSoup(inline(html), features="html.parser")
-        # soup.pre.attrs.update(soup.body.attrs)
-        # soup.pre['style'] += ';padding: 10px; margin-bottom: 24px;' + overflow_style
-        # self.content[0] = str(soup.pre)
         self.content[0] = wrap_content(html, overflow_style, theme, font_size)
         self.content[:] = self.content[:1]
 
