@@ -29,12 +29,12 @@
 
       fib(10)
 
-- 如果你不喜欢 Python 解释器的启动信息, 你可以用 ``:hide_header:`` 参数.
+- ``python`` 命令提供两种风格的渲染风格, 分别是 ``dark`` 和 ``light``, 默认的渲染风格是 ``dark``, 如果你想使用 ``light`` 风格的渲染方式, 可以使用 ``:theme:`` 参数来指定渲染风格.
 
   .. code-block:: rst
 
       .. python::
-          :hide_header:
+          :theme: light
 
           def fib(n):
               if n == 1:
@@ -46,7 +46,65 @@
           fib(10)
 
   .. python::
-      :hide_header:
+      :theme: light
+
+      def fib(n):
+          if n == 1:
+              return n
+          if n == 2:
+              return n
+          return fib(n - 1) + fib(n - 2)
+
+      fib(10)
+
+- 如果你想修改渲染的字体大小, 你可以使用 ``:font_size:`` 参数来指定.
+
+  .. code-block:: rst
+
+      .. python::
+          :theme: light
+          :font_size: 14px
+
+          def fib(n):
+              if n == 1:
+                  return n
+              if n == 2:
+                  return n
+              return fib(n - 1) + fib(n - 2)
+
+          fib(10)
+
+  .. python::
+      :theme: light
+      :font_size: 14px
+
+      def fib(n):
+          if n == 1:
+              return n
+          if n == 2:
+              return n
+          return fib(n - 1) + fib(n - 2)
+
+      fib(10)
+
+- 如果你不喜欢 Python 解释器的启动信息, 你可以用 ``:hide_information:`` 参数.
+
+  .. code-block:: rst
+
+      .. python::
+          :hide_information:
+
+          def fib(n):
+              if n == 1:
+                  return n
+              if n == 2:
+                  return n
+              return fib(n - 1) + fib(n - 2)
+
+          fib(10)
+
+  .. python::
+      :hide_information:
 
       def fib(n):
           if n == 1:

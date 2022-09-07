@@ -9,6 +9,29 @@ from time import sleep
 
 from pexpect import spawn
 from pexpect import ExceptionPexpect
+from bs4 import BeautifulSoup
+from css_inline import inline # pylint: disable = no-name-in-module
+from colorama import Style
+from colorama import Fore
+
+def wrap_header(display_command, information, hide_information, theme):
+    header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE if theme == "dark" else Fore.BLACK} {display_command}{Fore.RESET}{Style.RESET_ALL}'
+    if not hide_information:
+        header += information
+    return header
+
+def wrap_content(html, overflow_style, theme, font_size):
+    soup = BeautifulSoup(inline(html), features="html.parser")
+    soup.pre.attrs['class'] = []
+    soup.pre['style'] = overflow_style
+
+    if theme == 'dark':
+        soup.pre['style'] += 'color: #BBBBBB;background-color: #000000;'
+
+    if font_size:
+        soup.pre['style'] += f'font-size: {font_size}'
+
+    return f'<div class="highlight-rst notranslate"><div class="highlight">{str(soup.pre).strip()}</div></div>'
 
 def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120,) -> str:
     """

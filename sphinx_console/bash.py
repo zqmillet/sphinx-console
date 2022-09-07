@@ -12,8 +12,12 @@ from css_inline import inline # pylint: disable = no-name-in-module
 
 from .execute import execute
 from .execute import setup_and_teardown
+from .execute import wrap_header
+from .execute import wrap_content
+
 from .validators import parse_interactions
 from .validators import parse_overflow
+from .validators import parse_theme
 
 class Bash(Raw):
     """
@@ -32,6 +36,8 @@ class Bash(Raw):
         'teardown': directives.unchanged,
         'window_width': directives.positive_int,
         'window_height': directives.positive_int,
+        'font_size': directives.unchanged,
+        'theme': parse_theme,
     }
 
     def run(self):
@@ -46,9 +52,11 @@ class Bash(Raw):
         interactions = self.options.get('interactions', None)
         window_width = self.options.get('window_width', 80)
         window_height = self.options.get('window_height', 120)
+        font_size = self.options.get('font_size')
+        theme = self.options.get('theme', 'dark')
 
         self.arguments[:] = ['html']
-        convertor = Ansi2HTMLConverter(dark_bg=True, line_wrap=False, inline=True, font_size='10pt')
+        convertor = Ansi2HTMLConverter(dark_bg=(theme == 'dark'), line_wrap=False, inline=True)
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
             output = custom_output or (
@@ -61,12 +69,15 @@ class Bash(Raw):
                 )
             ) if not do_not_run else ''
 
-        header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
+        header = wrap_header(display_command, '', False, theme)
+        # f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE} {display_command}{Fore.RESET}{Style.RESET_ALL}'
         html = convertor.convert(header + output)
-        soup = BeautifulSoup(inline(html), features="html.parser")
-        soup.pre.attrs.update(soup.body.attrs)
-        soup.pre['style'] += ';padding: 10px; margin-bottom: 24px;' + overflow_style
-        self.content[0] = str(soup.pre)
+
+        # soup = BeautifulSoup(inline(html), features="html.parser")
+        # soup.pre.attrs.update(soup.body.attrs)
+        # soup.pre['style'] += ';padding: 10px; margin-bottom: 24px;' + overflow_style
+        # self.content[0] = str(soup.pre)
+        self.content[0] = wrap_content(html, overflow_style, theme, font_size)
         self.content[:] = self.content[:1]
 
         return super().run()
