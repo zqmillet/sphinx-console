@@ -61,4 +61,4 @@ You can can use it to execute Python expressions in the Python interpreter.
     fib(10)
 ```
 
-You can read ![the manual of sphinx-console](https://sphinx-console.readthedocs.io/) for more detail.
+You can read [the manual of sphinx-console](https://sphinx-console.readthedocs.io/) for more detail.
