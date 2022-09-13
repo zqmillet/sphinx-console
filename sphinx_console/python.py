@@ -5,6 +5,7 @@ this module provides the Python directive.
 from docutils.parsers.rst.directives.misc import Raw
 from docutils.parsers.rst import directives
 from ansi2html import Ansi2HTMLConverter
+from mezmorize import Cache
 
 from .execute import setup_and_teardown
 from .execute import interpret_python
@@ -32,6 +33,17 @@ class Python(Raw):
         'theme': parse_theme,
     }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if self.state.document.settings.env.config.sphinx_console_cache_dir:
+            self.interpret_python = Cache(
+                CACHE_TYPE='filesystem',
+                CACHE_DIR=self.state.document.settings.env.config.sphinx_console_cache_dir
+            ).memoize()(interpret_python)
+        else:
+            self.interpret_python = interpret_python
+
     def run(self):
         overflow_style = 'overflow-x:scroll;' if self.options.get('overflow', 'scroll') == 'scroll' else 'white-space:pre-wrap;'
         display_command = 'python\n'
@@ -45,7 +57,7 @@ class Python(Raw):
         convertor = Ansi2HTMLConverter(dark_bg=(theme == 'dark'), line_wrap=False, inline=True)
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
-            information, output = interpret_python(
+            information, output = self.interpret_python(
                 lines=self.content.data,
                 timeout=timeout,
                 window_height=window_height,

@@ -36,3 +36,5 @@ autodoc_class_signature = 'separated'
 
 autodoc_pydantic_model_show_json = False
 autodoc_pydantic_settings_show_json = False
+
+sphinx_console_cache_dir = '../.cache'

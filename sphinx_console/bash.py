@@ -9,6 +9,7 @@ from colorama import Style
 from colorama import Fore
 from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
+from mezmorize import Cache
 
 from .execute import execute
 from .execute import setup_and_teardown
@@ -40,6 +41,17 @@ class Bash(Raw):
         'theme': parse_theme,
     }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if self.state.document.settings.env.config.sphinx_console_cache_dir:
+            self.execute = Cache(
+                CACHE_TYPE='filesystem',
+                CACHE_DIR=self.state.document.settings.env.config.sphinx_console_cache_dir
+            ).memoize()(execute)
+        else:
+            self.execute = execute
+
     def run(self):
         command, *custom_output = self.content
         custom_output = '\n'.join(custom_output)
@@ -60,7 +72,7 @@ class Bash(Raw):
 
         with setup_and_teardown(self.options.get('setup'), self.options.get('teardown')):
             output = custom_output or (
-                '\n' + execute(
+                '\n' + self.execute(
                     command=command,
                     timeout=timeout,
                     interactions=interactions,

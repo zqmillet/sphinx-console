@@ -13,6 +13,7 @@ def setup(app):
     """
     app.add_directive('bash', Bash)
     app.add_directive('python', Python)
+    app.add_config_value('sphinx_console_cache_dir', None, '')
 
     return {
         'version': '0.1',

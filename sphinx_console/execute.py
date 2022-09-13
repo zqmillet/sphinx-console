@@ -33,7 +33,7 @@ def wrap_content(html, overflow_style, theme, font_size):
 
     return f'<div class="highlight-rst notranslate"><div class="highlight">{str(soup.pre).strip()}</div></div>'
 
-def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120,) -> str:
+def execute(command: str, timeout=30, interactions=None, window_width=80, window_height=120) -> str:
     """
     this function is used to execute the command and get its output.
     """
