@@ -4,6 +4,7 @@ this module provides the function execute and contextmanager setup_and_teardown.
 
 from os import environ
 from sys import executable
+from re import sub
 from contextlib import contextmanager
 from time import sleep
 
@@ -66,7 +67,7 @@ def interpret_python(lines, timeout=30, window_width=80, window_height=120, inte
     process = spawn(executable, encoding='utf8', timeout=timeout, env={**environ, 'TERM': 'xterm-256color'})
     process.setwinsize(window_height, window_width)
     process.expect('>>>')
-    header = process.before
+    header = sub(r'\x1b(\[.*?[@-~]|\].*?(\x07|\x1b\\))', '', process.before)
     auto_exit_expressions = ['', 'exit() # auto exit']
 
     output = ''
