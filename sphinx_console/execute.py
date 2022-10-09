@@ -43,7 +43,7 @@ def execute(command: str, timeout=30, interactions=None, window_width=80, window
 
     interactions = interactions or []
     try:
-        process = spawn(command, timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
+        process = spawn(f'/bin/bash -c {repr(command)}', timeout=timeout, encoding='utf8', env={**environ, 'TERM': 'xterm-256color'})
         process.setwinsize(window_height, window_width)
     except ExceptionPexpect as exception:
         return exception.value
