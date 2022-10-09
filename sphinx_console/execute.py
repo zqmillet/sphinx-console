@@ -58,7 +58,7 @@ def execute(command: str, timeout=30, interactions=None, window_width=80, window
     except ExceptionPexpect:
         output += process.buffer
 
-    return output.strip()
+    return output.rstrip()
 
 def interpret_python(lines, timeout=30, window_width=80, window_height=120, interval=0.1):
     """
