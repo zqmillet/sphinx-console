@@ -1,4 +1,4 @@
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 9)
 
 from os.path import join
 from os.path import dirname
