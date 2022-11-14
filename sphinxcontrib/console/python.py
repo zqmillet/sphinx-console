@@ -110,7 +110,7 @@ def visit_caption_node(self, node):
 
     self.body.append(self.starttag(node, "div", CLASS="python-caption"))
     self.add_fignumber(node.parent)
-    self.body.append(" — ")
+    self.body.append(" ")
     self.body.append(self.starttag(node, "span", CLASS="caption-text"))
 
 def depart_caption_node(self, node):
