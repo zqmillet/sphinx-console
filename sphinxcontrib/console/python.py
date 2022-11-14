@@ -66,7 +66,7 @@ class PythonDirective(SphinxDirective):
         window_height = self.options.get('window-height', 120)
         font_size = self.options.get('font-size')
         theme = self.options.get('theme', 'dark')
-        hide_information = self.options.get('hide-information', False)
+        hide_information = 'hide-information' in self.options
 
         self.arguments[:] = ['html']
         convertor = Ansi2HTMLConverter(dark_bg=(theme == 'dark'), line_wrap=False, inline=True)
