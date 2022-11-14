@@ -135,7 +135,7 @@
       :setup: python3 -m pip install rich
       :teardown: python3 -m pip uninstall rich -y
 
-- 如果你对 ``rich.panel`` 命令了解的话, 你应该知道 ``rich.panel`` 命令会填充整个控制台, 那么, 控制台的大小可以控制吗? 答案是可以的, ``bash`` 命令提供 ``:window_height:`` 和 ``:window-width:`` 两个参数来设置控制台的大小.
+- 如果你对 ``rich.panel`` 命令了解的话, 你应该知道 ``rich.panel`` 命令会填充整个控制台, 那么, 控制台的大小可以控制吗? 答案是可以的, ``bash`` 命令提供 ``:window-height:`` 和 ``:window-width:`` 两个参数来设置控制台的大小.
 
   你可以用如下代码将控制台的宽度缩小至 40 字符.
 
