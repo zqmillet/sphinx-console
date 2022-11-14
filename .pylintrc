@@ -407,19 +407,19 @@ never-returning-functions=sys.exit,argparse.parse_error
 [SIMILARITIES]
 
 # Comments are removed from the similarity computation
-ignore-comments=yes
+ignore-comments=no
 
 # Docstrings are removed from the similarity computation
-ignore-docstrings=yes
+ignore-docstrings=no
 
 # Imports are removed from the similarity computation
-ignore-imports=yes
+ignore-imports=no
 
 # Signatures are removed from the similarity computation
-ignore-signatures=yes
+ignore-signatures=no
 
 # Minimum lines number of a similarity.
-min-similarity-lines=4
+min-similarity-lines=20
 
 
 [DESIGN]
@@ -445,7 +445,7 @@ max-bool-expr=5
 max-branches=12
 
 # Maximum number of locals for function / method body.
-max-locals=15
+max-locals=20
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7

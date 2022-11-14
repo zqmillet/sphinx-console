@@ -1,3 +1,6 @@
+"""
+this is the package sphinxcontrib.console.
+"""
 __version__ = (1, 0, 9)
 
 from os.path import join
@@ -9,13 +12,18 @@ from .bash import setup as setup_bash
 from .python import setup as setup_python
 
 def copy_asset_files(application, execution):
-  asset_files = [join(dirname(__file__), 'sphinx_console.css')]
-  if execution is None: # build succeede
-    for path in asset_files:
-      copy_asset(path, join(application.outdir, '_static'))
+    """
+    this function is used to copy css file to build directory.
+    """
+    asset_files = [join(dirname(__file__), 'sphinx_console.css')]
+    if execution is None: # build succeede
+        for path in asset_files:
+            copy_asset(path, join(application.outdir, '_static'))
 
 def setup(application):
-    """Setup extension."""
+    """
+    setup extension.
+    """
     setup_bash(application)
     setup_python(application)
 

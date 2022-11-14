@@ -1,3 +1,6 @@
+"""
+this module provides the directive python.
+"""
 
 from docutils.parsers.rst import directives
 from docutils.nodes import raw
@@ -6,7 +9,6 @@ from docutils.nodes import Element
 from docutils.nodes import caption
 from sphinx.util.docutils import SphinxDirective
 from sphinx.application import Sphinx
-from mezmorize import Cache
 from ansi2html import Ansi2HTMLConverter
 
 from .validators import parse_interactions
@@ -79,7 +81,7 @@ class PythonDirective(SphinxDirective):
                 window_width=window_width,
             )
 
-        header = wrap_header(display_command, '', False, theme)
+        header = wrap_header(display_command, '', theme)
         html = convertor.convert(header + ('' if hide_information else information) + output)
         node = caption_wrapper(self, PythonNode(), PythonCaptionNode, self.options.get("caption"))
 
@@ -95,7 +97,7 @@ def visit_python_node(self, node):
     """
     self.body.append(self.starttag(node, "div", CLASS="python"))
 
-def depart_python_node(self, node):
+def depart_python_node(self, _node):
     """
     leave :class:`PythonNode` in html builder.
     """
@@ -129,13 +131,13 @@ def visit_content_node(self, node):
     """
     self.body.append(self.starttag(node, "div", CLASS='highlight-rst notranslate highlight'))
 
-def depart_content_node(self, node):
+def depart_content_node(self, _node):
     """
     leave :class:`PythonContentNode` in HTML builder.
     """
     self.body.append("</div>")
 
-def initialize_numfig_format(application, config):
+def initialize_numfig_format(_application, config):
     """
     initialize :confval:`numfig_format`.
     """

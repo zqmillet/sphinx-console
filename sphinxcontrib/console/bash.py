@@ -1,3 +1,7 @@
+"""
+this module provides the directive bash.
+"""
+
 from docutils.parsers.rst import directives
 from docutils.nodes import raw
 from docutils.nodes import General
@@ -96,7 +100,7 @@ class BashDirective(SphinxDirective):
                 )
             ) if not do_not_run else ''
 
-        header = wrap_header(display_command, '', False, theme)
+        header = wrap_header(display_command, '', theme)
         html = convertor.convert(header + output)
         node = caption_wrapper(self, BashNode(), BashCaptionNode, self.options.get("caption"))
 
@@ -112,7 +116,7 @@ def visit_bash_node(self, node):
     """
     self.body.append(self.starttag(node, "div", CLASS="bash"))
 
-def depart_bash_node(self, node):
+def depart_bash_node(self, _node):
     """
     leave :class:`BashNode` in html builder.
     """
@@ -147,13 +151,13 @@ def visit_content_node(self, node):
     """
     self.body.append(self.starttag(node, "div", CLASS='highlight-rst notranslate highlight'))
 
-def depart_content_node(self, node):
+def depart_content_node(self, _node):
     """
     leave :class:`BashContentNode` in HTML builder.
     """
     self.body.append("</div>")
 
-def initialize_numfig_format(application, config):
+def initialize_numfig_format(_application, config):
     """
     initialize :confval:`numfig_format`.
     """

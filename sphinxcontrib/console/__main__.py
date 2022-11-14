@@ -1,3 +1,7 @@
+"""
+this module is the entry.
+"""
+
 from . import __version__
 
 print('hello sphinx-console')

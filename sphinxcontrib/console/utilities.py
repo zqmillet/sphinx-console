@@ -1,3 +1,7 @@
+"""
+this module provides utilities.
+"""
+
 from docutils.nodes import Element
 from docutils.statemachine import ViewList
 

@@ -15,13 +15,17 @@ from css_inline import inline # pylint: disable = no-name-in-module
 from colorama import Style
 from colorama import Fore
 
-def wrap_header(display_command, information, hide_information, theme):
+def wrap_header(display_command, information, theme):
+    """
+    this function is used to make the header of directive.
+    """
     header = f'{Style.BRIGHT}{Fore.RED}${Fore.WHITE if theme == "dark" else Fore.BLACK} {display_command}{Fore.RESET}{Style.RESET_ALL}'
-    if not hide_information:
-        header += information
-    return header
+    return header + information
 
 def wrap_content(html, overflow_style, theme, font_size):
+    """
+    this function is used to make content of directive.
+    """
     soup = BeautifulSoup(inline(html), features="html.parser")
     soup.pre.attrs['class'] = []
     soup.pre['style'] = overflow_style
@@ -79,7 +83,7 @@ def interpret_python(lines, timeout=30, window_width=80, window_height=120, inte
             process.sendline(line)
 
         output = '>>>' + process.read().rstrip()
-    except ExceptionPexpect as exception:
+    except ExceptionPexpect:
         output = '>>>' + process.before.replace('\r', '').rstrip()
 
     # remote auto exit code.
