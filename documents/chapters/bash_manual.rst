@@ -25,29 +25,29 @@
   .. bash:: ping www.baidu.com -c 4
       :theme: light
 
-- 如果你想修改渲染的字体大小, 你可以使用 ``:font_size:`` 参数来指定.
+- 如果你想修改渲染的字体大小, 你可以使用 ``:font-size:`` 参数来指定.
 
   .. code-block:: rst
 
       .. bash:: ping www.baidu.com -c 4
           :theme: light
-          :font_size: 14px
+          :font-size: 14px
 
   .. bash:: ping www.baidu.com -c 4
       :theme: light
-      :font_size: 14px
+      :font-size: 14px
 
-- ``bash`` 命令默认会执行后面的这条指令, 如果你只想显示命令, 而不想执行, 可以使用 ``:do_not_run:`` 参数, 如下 reST 代码.
+- ``bash`` 命令默认会执行后面的这条指令, 如果你只想显示命令, 而不想执行, 可以使用 ``:do-not-run:`` 参数, 如下 reST 代码.
 
   .. code-block:: rst
 
       .. bash:: ping www.baidu.com -c 4
-          :do_not_run:
+          :do-not-run:
 
   可以产生以下效果.
 
   .. bash:: ping www.baidu.com -c 4
-      :do_not_run:
+      :do-not-run:
 
 - 某些命令会无限循环, 比如 :sh:`ping www.baidu.com`, 这条命令会一直执行下去, 直到用户使用 :guilabel:`Ctrl + C` 组合键将其中断. ``bash`` 遇到这种命令会有超时机制, 默认是 30 秒, 也就是一条指令最多运行 30 秒, 30 秒后 ``bash`` 命令会终止该进程并输出其渲染结果.
 
@@ -63,17 +63,21 @@
   .. bash:: ping www.baidu.com
       :timeout: 4
 
-- 如果你想执行的命令和渲染的命令不同, 可以使用 ``:display_command:`` 参数来单独指定渲染的命令.
+- 如果你想执行的命令和渲染的命令不同, 可以使用 ``:display-command:`` 参数来单独指定渲染的命令.
 
   .. code-block:: rst
 
       .. bash:: echo "+1s"
-          :display_command: 苟利国家生死以 岂因祸福避趋之
+          :display-command: 苟利国家生死以 岂因祸福避趋之
+          :caption: 2333
 
-  可以产生以下效果.
+  可以产生以下效果 :numref:`python`.
+
+  .. _python:
 
   .. bash:: echo "+1s"
-      :display_command: 苟利国家生死以 岂因祸福避趋之
+      :display-command: 苟利国家生死以 岂因祸福避趋之
+      :caption: 2333
 
 - 如果你想在执行某些命令后需要一些交互, 那么可以使用 ``:interactions:`` 参数. ``:interactions:`` 参数是一个 JSON, 其格式为 :math:`n \times 2` 的字符串矩阵, 其中 :math:`n` 表示交互次数. 对于每一次交互, 都由两部分组成, 前半部分是匹配模式, 如果控制台输出满足该匹配模式, 则启动交互, 而后半部分为交互的输入\ [#f1]_.
 
@@ -131,7 +135,7 @@
       :setup: python3 -m pip install rich
       :teardown: python3 -m pip uninstall rich -y
 
-- 如果你对 ``rich.panel`` 命令了解的话, 你应该知道 ``rich.panel`` 命令会填充整个控制台, 那么, 控制台的大小可以控制吗? 答案是可以的, ``bash`` 命令提供 ``:window_height:`` 和 ``:window_width:`` 两个参数来设置控制台的大小.
+- 如果你对 ``rich.panel`` 命令了解的话, 你应该知道 ``rich.panel`` 命令会填充整个控制台, 那么, 控制台的大小可以控制吗? 答案是可以的, ``bash`` 命令提供 ``:window_height:`` 和 ``:window-width:`` 两个参数来设置控制台的大小.
 
   你可以用如下代码将控制台的宽度缩小至 40 字符.
 
@@ -140,24 +144,24 @@
       .. bash:: python3 -m rich.panel
           :setup: python3 -m pip install rich
           :teardown: python3 -m pip uninstall rich -y
-          :window_width: 40
+          :window-width: 40
 
   .. bash:: python3 -m rich.panel
       :setup: python3 -m pip install rich
       :teardown: python3 -m pip uninstall rich -y
-      :window_width: 40
+      :window-width: 40
 
   你可以用如下命令来查看当前窗口的大小.
 
   .. code-block:: rst
 
-      .. bash:: python3 -c "import os; print(os.popen('stty size', 'r').read().strip())"
-          :window_width: 40
-          :window_height: 10
+      .. bash:: python3 -c "import os; print(os.popen(\"stty size\", \"r\").read().strip())"
+          :window-width: 40
+          :window-height: 10
 
-  .. bash:: python3 -c "import os; print(os.popen('stty size', 'r').read().strip())"
-      :window_width: 40
-      :window_height: 10
+  .. bash:: python3 -c "import os; print(os.popen(\"stty size\", \"r\").read().strip())"
+      :window-width: 40
+      :window-height: 10
 
 - 如果你想自定义命令的输出, 你可以为 ``bash`` 命令添加内容.
 

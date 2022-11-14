@@ -25,12 +25,12 @@ sphinx-console 是一个可以自动执行指定命令, 并对命令和输出进
 - 当然, 你可以只显示命令本身.
 
   .. bash:: ping localhost -c 4
-      :do_not_run:
+      :do-not-run:
 
 - 值得注意的是, sphinx-console 也支持持颜色显示\ [#f1]_.
 
   .. bash:: bash chapters/scripts/color_test.sh
-      :display_command: bash color_test.sh
+      :display-command: bash color_test.sh
 
 .. rubric:: footnotes
 

@@ -57,13 +57,13 @@
 
       fib(10)
 
-- 如果你想修改渲染的字体大小, 你可以使用 ``:font_size:`` 参数来指定.
+- 如果你想修改渲染的字体大小, 你可以使用 ``:font-size:`` 参数来指定.
 
   .. code-block:: rst
 
       .. python::
           :theme: light
-          :font_size: 14px
+          :font-size: 14px
 
           def fib(n):
               if n == 1:
@@ -76,7 +76,7 @@
 
   .. python::
       :theme: light
-      :font_size: 14px
+      :font-size: 14px
 
       def fib(n):
           if n == 1:
@@ -87,12 +87,12 @@
 
       fib(10)
 
-- 如果你不喜欢 Python 解释器的启动信息, 你可以用 ``:hide_information:`` 参数.
+- 如果你不喜欢 Python 解释器的启动信息, 你可以用 ``:hide-information:`` 参数.
 
   .. code-block:: rst
 
       .. python::
-          :hide_information:
+          :hide-information:
 
           def fib(n):
               if n == 1:
@@ -104,7 +104,7 @@
           fib(10)
 
   .. python::
-      :hide_information:
+      :hide-information:
 
       def fib(n):
           if n == 1:
@@ -139,7 +139,7 @@
 
       print(' '.join(['gouliguojiashengsiyi'] * 10))
 
-- 同样的, ``python`` 命令也提供 ``:window_width:`` 和 ``:window_height:`` 参数, 可以设置控制台的大小.
+- 同样的, ``python`` 命令也提供 ``:window-width:`` 和 ``:window-height:`` 参数, 可以设置控制台的大小.
 
   .. code-block:: rst
 
@@ -156,15 +156,15 @@
   .. code-block:: rst
 
       .. python::
-          :window_height: 20
-          :window_width: 40
+          :window-height: 20
+          :window-width: 40
 
           from os import get_terminal_size
           get_terminal_size()
 
   .. python::
-      :window_height: 20
-      :window_width: 40
+      :window-height: 20
+      :window-width: 40
 
       from os import get_terminal_size
       get_terminal_size()

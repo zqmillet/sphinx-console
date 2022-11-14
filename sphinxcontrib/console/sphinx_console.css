@@ -1,0 +1,24 @@
+.bash {
+}
+
+.bash > .bash-caption {
+    font-style: italic;
+    font-size: 85%;
+    line-height: 1;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.python {
+}
+
+.python > .python-caption {
+    font-style: italic;
+    font-size: 85%;
+    line-height: 1;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.python > .python-content {
+}
