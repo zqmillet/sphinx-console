@@ -33,4 +33,4 @@ rst_prolog = '''
 html_theme = 'sphinx_rtd_theme'
 source_suffix = ['.rst']
 
-sphinx_console_cache_dir = '../.cache'
+# sphinx_console_cache_dir = '../.cache'

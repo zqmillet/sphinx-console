@@ -155,11 +155,11 @@
 
   .. code-block:: rst
 
-      .. bash:: python3 -c "import os; print(os.popen(\"stty size\", \"r\").read().strip())"
+      .. bash:: python3 -c "import os; print(os.get_terminal_size())"
           :window-width: 40
           :window-height: 10
 
-  .. bash:: python3 -c "import os; print(os.popen(\"stty size\", \"r\").read().strip())"
+  .. bash:: python3 -c "import os; print(os.get_terminal_size())"
       :window-width: 40
       :window-height: 10
 
