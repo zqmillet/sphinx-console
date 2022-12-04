@@ -58,6 +58,7 @@ class DisassemblyDirective(SphinxDirective):
         end = self.options.get('end')
 
         file_path, *_ = self.content
+        _, file_path = self.env.relfn2path(file_path)
         convertor = Ansi2HTMLConverter(dark_bg=(theme == 'dark'), line_wrap=False, inline=True)
 
         with open(file_path, 'r', encoding='utf8') as file:
