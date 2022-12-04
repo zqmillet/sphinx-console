@@ -12,6 +12,9 @@
 .python {
 }
 
+.python-disassembly {
+}
+
 .python > .python-caption {
     font-style: italic;
     font-size: 85%;
@@ -21,4 +24,15 @@
 }
 
 .python > .python-content {
+}
+
+.python-disassembly > .python-disassembly-caption {
+    font-style: italic;
+    font-size: 85%;
+    line-height: 1;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.python-disassembly > .python-disassembly-content {
 }

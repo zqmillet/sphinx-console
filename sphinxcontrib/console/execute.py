@@ -2,11 +2,14 @@
 this module provides the function execute and contextmanager setup_and_teardown.
 """
 
+from typing import Optional
 from os import environ
 from sys import executable
 from re import sub
 from contextlib import contextmanager
 from time import sleep
+from dis import Bytecode
+from textwrap import dedent
 
 from pexpect import spawn
 from pexpect import ExceptionPexpect
@@ -99,6 +102,13 @@ def interpret_python(lines, timeout=30, window_width=80, window_height=120, inte
         output_lines.pop()
 
     return header, '\n'.join(line.rstrip() for line in output_lines).rstrip()
+
+def get_python_disassembly(code: str, begin: int = 1, end: Optional[int] = None):
+    """
+    this function is ued to get disassembly of python code snippet.
+    """
+    code = '\n'.join([''] * (begin - 1) + code.splitlines()[begin - 1:end])
+    return dedent(Bytecode(code).dis()).rstrip()
 
 @contextmanager
 def setup_and_teardown(setup, teardown):

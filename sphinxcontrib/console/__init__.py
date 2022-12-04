@@ -1,7 +1,7 @@
 """
 this is the package sphinxcontrib.console.
 """
-__version__ = (1, 0, 9)
+__version__ = (1, 0, 10)
 
 from os.path import join
 from os.path import dirname
@@ -10,6 +10,7 @@ from sphinx.util.fileutil import copy_asset
 
 from .bash import setup as setup_bash
 from .python import setup as setup_python
+from .disassembly import setup as setup_disassembly
 
 def copy_asset_files(application, execution):
     """
@@ -26,6 +27,7 @@ def setup(application):
     """
     setup_bash(application)
     setup_python(application)
+    setup_disassembly(application)
 
     application.add_config_value('sphinx_console_cache_dir', None, '')
     application.add_css_file('sphinx_console.css')
