@@ -68,3 +68,11 @@ You can can use it to execute Python expressions in the Python interpreter.
 ```
 
 You can read [the manual of sphinx-console](https://sphinx-console.readthedocs.io/) for more detail.
+
+## Test
+
+Install all dependencies with `pip install -r testcases/requirements.txt`, then use pytest to run all test cases.
+
+``` bash
+pytest testcases
+```
