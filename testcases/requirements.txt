@@ -1,6 +1,4 @@
-beautifulsoup4==4.11.1
+beautifulsoup4==4.11.2
 pytest==7.1.2
 Sphinx==4.4.0
-sphinx_console==1.0.2
-sphinx_console.egg==info
 rich

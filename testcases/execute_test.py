@@ -1,4 +1,4 @@
-from sphinx_console.bash import execute
+from sphinxcontrib.console.bash import execute
 
 def test_execute_ls():
     output = execute('ls')
@@ -20,7 +20,7 @@ def test_execute_python():
 
 def test_execute_nonexistent_cmd():
     output = execute('gouliguojiashengsiyi')
-    assert output == 'The command was not found or was not executable: gouliguojiashengsiyi.'
+    assert 'command not found' in output.lower()
 
 def test_execute_python_with_exit():
     output = execute('python3', interactions=[('>>>', '1 + 2'), ('>>>', 'exit()')])

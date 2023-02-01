@@ -2,7 +2,7 @@ hi, bash test
 =============
 
 .. bash:: ls -al
-    :do_not_run:
+    :do-not-run:
 
 .. bash:: ls -al
 
@@ -11,7 +11,7 @@ hi, bash test
     :interactions: [[">>>", "1 + 2"], [">>>", "exit()"]]
 
 .. bash:: python3 -m rich
-    :display_command: rich
+    :display-command: rich
 
 .. bash:: ls -al
 

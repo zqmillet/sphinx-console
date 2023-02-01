@@ -1,5 +1,5 @@
 from textwrap import dedent
-from sphinx_console.execute import interpret_python
+from sphinxcontrib.console.python import interpret_python
 
 def test_interpret_python():
     header, output = interpret_python(['from math import e', 'e'])
