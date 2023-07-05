@@ -1,4 +1,2 @@
-beautifulsoup4==4.11.2
 pytest==7.1.2
-Sphinx==4.4.0
 rich
