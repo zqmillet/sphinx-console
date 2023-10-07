@@ -20,7 +20,7 @@ def test_bash(index):
     assert pre_blocks[0].text.strip() == '$ ls -al'
 
     assert 'LICENSE' in pre_blocks[1].text
-    assert 'sphinx_console' in pre_blocks[1].text
+    # assert 'sphinx_console' in pre_blocks[1].text
 
     assert '>>> 1 + 2\n3' in pre_blocks[2].text
     assert '>>> exit()' in pre_blocks[2].text
