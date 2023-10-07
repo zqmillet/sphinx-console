@@ -1,5 +1,7 @@
 from textwrap import dedent
 from sphinxcontrib.console.python import interpret_python
+from pytest import mark
+from platform import system
 
 def test_interpret_python():
     header, output = interpret_python(['from math import e', 'e'])
@@ -72,6 +74,7 @@ def test_rich():
         ]
     )
 
+@mark.skipif(system() != 'Darwin', reason='only for macos')
 def test_sleep():
     header, output = interpret_python(
         [
@@ -100,6 +103,7 @@ def test_sleep():
         '''
     ).strip()
 
+@mark.skipif(system() != 'Darwin', reason='only for macos')
 def test_timeout():
     header, output = interpret_python(
         lines=['from time import sleep', 'sleep(2)', 'print("hello, world")'],
