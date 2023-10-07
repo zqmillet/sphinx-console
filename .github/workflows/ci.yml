@@ -47,6 +47,3 @@ jobs:
       env:
         PYTHONPATH: .
       run: pytest -vvs testcases
-
-
-
