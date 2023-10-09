@@ -10,9 +10,15 @@ from contextlib import contextmanager
 from time import sleep
 from dis import Bytecode
 from textwrap import dedent
+from platform import system
 
-from pexpect import spawn
-from pexpect import ExceptionPexpect
+if system() == 'Windows':
+    from wexpect import spawn
+    from wexpect import ExceptionPexpect
+else:
+    from pexpect import spawn
+    from pexpect import ExceptionPexpect
+
 from bs4 import BeautifulSoup
 from css_inline import inline # pylint: disable = no-name-in-module
 from colorama import Style

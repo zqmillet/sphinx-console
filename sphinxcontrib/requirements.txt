@@ -6,3 +6,4 @@ docutils==0.17.1
 mezmorize==0.28.2
 pexpect==4.8.0
 Sphinx==4.4.0
+wexpect
