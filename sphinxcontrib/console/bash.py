@@ -7,7 +7,6 @@ from docutils.nodes import raw
 from docutils.nodes import General
 from docutils.nodes import Element
 from docutils.nodes import caption
-from sphinx.util.docutils import SphinxDirective
 from sphinx.application import Sphinx
 from mezmorize import Cache
 from ansi2html import Ansi2HTMLConverter
@@ -20,6 +19,7 @@ from .execute import setup_and_teardown
 from .execute import wrap_header
 from .execute import wrap_content
 from .utilities import caption_wrapper
+from .directive import Directive
 
 class BashNode(General, Element):
     """
@@ -36,7 +36,7 @@ class BashCaptionNode(caption):
     caption of bash directive.
     """
 
-class BashDirective(SphinxDirective):
+class BashDirective(Directive):
     """
     an environment for bash
     """
@@ -77,7 +77,6 @@ class BashDirective(SphinxDirective):
         command, *custom_output = self.content
         custom_output = '\n'.join(custom_output)
         overflow_style = 'overflow-x:auto;' if self.options.get('overflow', 'scroll') == 'scroll' else 'white-space:pre-wrap;'
-        do_not_run = 'do-not-run' in self.options
         display_command = self.options.get('display-command', command)
         timeout = self.options.get('timeout', 30)
         interactions = self.options.get('interactions', None)
@@ -98,7 +97,7 @@ class BashDirective(SphinxDirective):
                     window_width=window_width,
                     window_height=window_height
                 )
-            ) if not do_not_run else ''
+            ) if not self.do_not_run else ''
 
         header = wrap_header(display_command, '', theme)
         html = convertor.convert(header + output)
