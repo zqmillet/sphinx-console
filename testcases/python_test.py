@@ -1,7 +1,9 @@
+from textwrap import dedent
+from platform import system
+
 from pytest import fixture
 from pytest import mark
 from bs4 import BeautifulSoup
-from textwrap import dedent
 
 @fixture
 def build_all(app):
@@ -11,6 +13,7 @@ def build_all(app):
 def index(app, build_all):
     return (app.outdir / 'index.html').read_text()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 @mark.sphinx('html', testroot='python')
 def test_python(index):
     soup = BeautifulSoup(index, 'html.parser')

@@ -3,6 +3,7 @@ from sphinxcontrib.console.python import interpret_python
 from pytest import mark
 from platform import system
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_interpret_python():
     header, output = interpret_python(['from math import e', 'e'])
     assert output == dedent(
@@ -13,6 +14,7 @@ def test_interpret_python():
         '''
     ).strip()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_for_loop():
     header, output = interpret_python(['for i in range(10):', '    print(i)'])
 
@@ -34,6 +36,7 @@ def test_for_loop():
         '''
     ).strip()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_exit():
     header, output = interpret_python(['1 + 1', 'exit()', '1 + 2'])
 
@@ -45,6 +48,7 @@ def test_exit():
         '''
     ).strip()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_exit_in_for():
     header, output = interpret_python(['for i in range(10):', '    exit()'])
 
@@ -56,6 +60,7 @@ def test_exit_in_for():
         '''
     ).strip()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_rich():
     header, output = interpret_python(
         [
@@ -116,6 +121,7 @@ def test_timeout():
         '''
     ).strip()
 
+@mark.skipif(system() == 'Windows', reason='only for macos and linux')
 def test_windows_size():
     header, output = interpret_python(lines=['from os import get_terminal_size', 'get_terminal_size()'], window_height=10, window_width=40)
 
